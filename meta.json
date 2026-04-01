@@ -1,0 +1,40 @@
+{
+  "name": "Outil de Détection de Plagiat Académique",
+  "description": "Vérifiez l",
+  "theme": "tool",
+  "design_theme": "signal-noir",
+  "structure_preset": "tool-first-rail",
+  "render_direction": "worksheet-flow",
+  "page_blueprint": "worksheet-cascade",
+  "language": "fr",
+  "country": "FR",
+  "url": null,
+  "expected_url": "https://outil-de-detection-de-plagiat-academique-2.up.railway.app",
+  "created": "2026-04-01T21:37:37.685524+00:00",
+  "owner_user_id": "user-1774822953462",
+  "owner_username": "admin",
+  "owner_display_name": "Administrator",
+  "status": "generated",
+  "run_id": "run-1775079302370",
+  "publish_target": "railway",
+  "mode": "production",
+  "github": {
+    "status": "pending"
+  },
+  "deployment": {
+    "status": "pending"
+  },
+  "qa": {
+    "status": "pending"
+  },
+  "features": [
+    "Hero pattern: tool-first",
+    "Proof module: checklist",
+    "Design theme: Signal Noir",
+    "Render direction: Worksheet Flow",
+    "Page blueprint: Worksheet Cascade",
+    "Runtime mode: document_generator",
+    "Generation mode: direct_html",
+    "Artifact rendered, awaiting QA and deployment"
+  ]
+}
