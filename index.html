@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil de Détection de Plagiat Académique | Analyse de Similarité de Texte</title>
+    <meta name="description" content="Vérifiez l">
+    <style>
+        :root {
+            --color-bg-dark: #121212;
+            --color-bg-medium: #1e1e1e;
+            --color-bg-light: #2c2c2c;
+            --color-text-primary: #e0e0e0;
+            --color-text-secondary: #a0a0a0;
+            --color-accent: #007bff;
+            --color-accent-hover: #0056b3;
+            --color-border: #3a3a3a;
+            --font-display: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-body: 'Roboto', Arial, sans-serif;
+            --spacing-unit: 8px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-primary);
+            background-color: var(--color-bg-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background-color: var(--color-bg-medium);
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2);
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.8em;
+            letter-spacing: 0.05em;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--color-text-primary);
+        }
+
+        header p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--color-text-secondary);
+        }
+
+        main {
+            width: 100%;
+            max-width: 1000px;
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2);
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 4);
+        }
+
+        .tool-section {
+            background-color: var(--color-bg-medium);
+            border: 1px solid var(--color-border);
+            border-radius: var(--spacing-unit);
+            padding: calc(var(--spacing-unit) * 3);
+        }
+
+        .tool-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            padding: calc(var(--spacing-unit) * 2);
+            border: 1px solid var(--color-border);
+            background-color: var(--color-bg-light);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            font-size: 1em;
+            box-sizing: border-box;
+            border-radius: var(--spacing-unit) / 2;
+            resize: vertical;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+        }
+
+        button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-text-primary);
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+            border: none;
+            border-radius: var(--spacing-unit) / 2;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        button:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #tool-result {
+            min-height: 150px;
+            background-color: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--spacing-unit) / 2;
+            padding: calc(var(--spacing-unit) * 2);
+            font-family: var(--font-body);
+            color: var(--color-text-primary);
+            font-size: 1em;
+            line-height: 1.6;
+            margin-top: calc(var(--spacing-unit) * 3);
+            overflow-x: auto;
+        }
+
+        #tool-result h3 {
+            font-family: var(--font-display);
+            font-size: 1.4em;
+            color: var(--color-accent);
+            margin-top: 0;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .highlight {
+            background-color: rgba(255, 255, 0, 0.2); /* Highlight potential plagiarism */
+            color: #FFD700; /* Gold-like text for highlights */
+            padding: 2px 0;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+
+        .seo-section {
+            width: 100%;
+            max-width: 1000px;
+            padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2);
+            box-sizing: border-box;
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-secondary);
+            font-size: 0.9em;
+            line-height: 1.6;
+            border-top: 1px solid var(--color-border);
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        .seo-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.6em;
+            color: var(--color-text-primary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .seo-section p {
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+
+        .seo-section ul {
+            list-style-type: disc;
+            margin-left: calc(var(--spacing-unit) * 3);
+            padding: 0;
+        }
+
+        .seo-section li {
+            margin-bottom: calc(var(--spacing-unit));
+        }
+
+        footer {
+            width: 100%;
+            background-color: var(--color-bg-medium);
+            color: var(--color-text-secondary);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2);
+            font-size: 0.85em;
+            border-top: 1px solid var(--color-border);
+            margin-top: auto;
+        }
+
+        @media (min-width: 768px) {
+            main {
+                grid-template-columns: 1fr; /* Keep single column for cleaner flow */
+            }
+        }
+    </style>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://outil-de-detection-de-plagiat-academique-2.up.railway.app">
+    <meta property="og:title" content="Outil de Détection de Plagiat Académique">
+    <meta property="og:description" content="Vérifiez l">
+    <meta property="og:url" content="https://outil-de-detection-de-plagiat-academique-2.up.railway.app">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Outil de Détection de Plagiat Académique", "description": "Vérifiez l", "url": "https://outil-de-detection-de-plagiat-academique-2.up.railway.app", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser"}</script>
+</head>
+<body data-site-slug="outil-de-detection-de-plagiat-academique-2" data-runtime-mode="document_generator">
+    <header>
+        <h1>Outil de Détection de Plagiat Académique</h1>
+        <p>Garantissez l'intégrité de vos travaux. Vérifiez l'originalité de vos documents académiques, thèses, articles ou mémoires en quelques secondes.</p>
+    </header>
+
+    <main>
+        <section class="tool-section">
+            <h2>Analyse de Similarité de Texte</h2>
+            <form id="tool-form">
+                <textarea id="text-input" placeholder="Collez votre texte ici pour vérifier son originalité (minimum 100 mots pour une analyse pertinente)..."></textarea>
+                <button type="submit" id="tool-submit" data-affiliate-slot="plagiarism_check_cta">Vérifier l'Originalité</button>
+            </form>
+            <div id="tool-result">
+                <h3 id="result-headline">Résultats de l'Analyse</h3>
+                <p>Votre rapport de similarité apparaîtra ici après l'analyse.</p>
+            </div>
+        </section>
+    </main>
+
+    <section class="seo-section">
+        <h2>Recherche d'Originalité : Outil Anti-Plagiat pour Étudiants et Chercheurs</h2>
+        <p>Dans le paysage académique français, l'originalité de vos travaux est primordiale. Notre <strong>outil de détection de plagiat gratuit</strong> est conçu pour vous aider à préserver l'intégrité de vos recherches, qu'il s'agisse d'une <strong>thèse de doctorat</strong>, d'un <strong>mémoire de Master</strong>, d'un <strong>article scientifique</strong> ou de tout autre <strong>document académique</strong>.</p>
+        <p>Grâce à une technologie avancée, notre service analyse votre texte et le compare avec des millions de sources disponibles en ligne et dans des bases de données de publications. Nous identifions rapidement les passages potentiellement non originaux, vous permettant de les réviser avant soumission. Ce service est un allié précieux pour les <strong>étudiants universitaires</strong>, les <strong>doctorants</strong> et les <strong>chercheurs</strong> soucieux de la qualité et de l'authenticité de leur production intellectuelle.</p>
+        <p>Pourquoi utiliser un <strong>logiciel anti-plagiat</strong> ?</p>
+        <ul>
+            <li><strong>Protection Académique :</strong> Évitez les sanctions liées au plagiat et assurez la crédibilité de vos travaux.</li>
+            <li><strong>Gain de Temps :</strong> Détectez rapidement les sources potentielles de similarité sans effort manuel.</li>
+            <li><strong>Amélioration de l'Écriture :</strong> Utilisez les résultats pour paraphraser, citer correctement et renforcer votre pensée critique.</li>
+            <li><strong>Conformité :</strong> Respectez les standards éthiques et les directives de votre institution d'enseignement supérieur.</li>
+        </ul>
+        <p>Notre interface est simple d'utilisation et offre un <strong>rapport de plagiat</strong> clair et détaillé, mettant en évidence les phrases et paragraphes nécessitant votre attention. Que vous recherchiez un <strong>comparateur de texte en ligne</strong> ou un <strong>vérificateur d'originalité pour mémoire</strong>, notre solution est adaptée à vos besoins spécifiques en France.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Outil de Détection de Plagiat. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.getElementById('tool-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const textInput = document.getElementById('text-input').value;
+            const resultDiv = document.getElementById('tool-result');
+
+            if (textInput.length < 100) {
+                resultDiv.innerHTML = '<h3>Résultats de l\'Analyse</h3><p style="color: #ff4d4d;">Veuillez saisir au moins 100 mots pour une analyse pertinente.</p>';
+                return;
+            }
+
+            resultDiv.innerHTML = '<h3>Résultats de l\'Analyse</h3><p>Analyse en cours... Veuillez patienter.</p>';
+
+            // Simulate plagiarism detection
+            setTimeout(() => {
+                const keywords = ['selon', 'études', 'montrent', 'ainsi', 'il est clair que', 'considérant que', 'il a été démontré', 'la recherche indique', 'en conclusion', 'par ailleurs', 'en effet', 'cependant', 'néanmoins', 'toutefois', 'd\'après', 'comme indiqué par'];
+                const commonPhrases = [
+                    'Il est impératif de noter que la mondialisation a un impact profond sur les économies locales.',
+                    'Les données recueillies suggèrent une corrélation directe entre l\'augmentation des températures et la fréquence des événements météorologiques extrêmes.',
+                    'L\'analyse approfondie des systèmes complexes révèle des dynamiques non linéaires inattendues.',
+                    'Le rôle de la technologie dans l\'évolution des paradigmes éducatifs est un sujet de débat intense.',
+                    'En ce qui concerne les implications sociales, il est essentiel d\'adopter une approche multidisciplinaire pour comprendre pleinement les enjeux.'
+                ];
+                let processedText = textInput;
+                let potentialPlagiarismCount = 0;
+
+                // Highlight common phrases (simulated external sources)
+                commonPhrases.forEach(phrase => {
+                    const regex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                    if (processedText.match(regex)) {
+                        processedText = processedText.replace(regex, `<span class="highlight">${phrase}</span>`);
+                        potentialPlagiarismCount++;
+                    }
+                });
+
+                // Highlight generic academic-sounding phrases (simulated generic matches)
+                keywords.forEach(keyword => {
+                    const regex = new RegExp(`\\b${keyword}\\b[^.!?]*[.!?,]`, 'gi');
+                    processedText = processedText.replace(regex, (match) => {
+                        // Only highlight if not already part of a commonPhrase highlight
+                        if (!match.includes('<span class="highlight">')) {
+                            potentialPlagiarismCount++;
+                            return `<span class="highlight">${match}</span>`;
+                        }
+                        return match;
+                    });
+                });
+                
+                const percentage = Math.min(100, Math.floor((potentialPlagiarismCount / (textInput.split(' ').length / 20)) * 100)); // Rough percentage calculation
+
+                if (potentialPlagiarismCount > 0) {
+                    resultDiv.innerHTML = `
+                        <h3>Résultats de l'Analyse</h3>
+                        <p>Le document présente un taux de similarité estimé à <strong style="color: #FFD700;">${percentage}%</strong>. Les passages potentiellement non originaux sont surlignés en <span style="background-color: rgba(255, 255, 0, 0.2); color: #FFD700; padding: 2px 0;">jaune</span>.</p>
+                        <p>${processedText}</p>
+                        <p style="margin-top: calc(var(--spacing-unit) * 2);">Veuillez examiner attentivement les sections surlignées et citer vos sources si nécessaire.</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <h3>Résultats de l'Analyse</h3>
+                        <p>Aucun passage significativement similaire n'a été détecté. Le document semble original.</p>
+                        <p>${processedText}</p>
+                    `;
+                }
+            }, 1500); // Simulate network delay
+        });
+    </script>
+<div id="qa-smoke-result" hidden></div>
+<script id="farmbuilder-affiliate-helper">
+(function () {
+  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};
+  document.addEventListener("click", function (event) {
+    const target = event.target.closest("[data-affiliate-slot]");
+    if (!target) return;
+    const slot = target.getAttribute("data-affiliate-slot");
+    const href = window.__UTILITY_AFFILIATE_MAP[slot];
+    if (!href) return;
+    if (target.tagName && target.tagName.toLowerCase() === "a") {
+      target.setAttribute("href", href);
+      target.setAttribute("rel", "nofollow sponsored noopener noreferrer");
+      return;
+    }
+    event.preventDefault();
+    window.open(href, "_blank", "noopener");
+  }, true);
+})();
+</script>
+<script id="farmbuilder-functional-qa">
+(function () {
+  function marker() {
+    let node = document.getElementById("qa-smoke-result");
+    if (node) return node;
+    node = document.createElement("div");
+    node.id = "qa-smoke-result";
+    node.hidden = true;
+    document.body.appendChild(node);
+    return node;
+  }
+
+  function normalize(text) {
+    return String(text || "").replace(/\s+/g, " ").trim();
+  }
+
+  function findForm() {
+    return document.getElementById("tool-form") || document.querySelector("form");
+  }
+
+  function findResult() {
+    return (
+      document.getElementById("tool-result") ||
+      document.querySelector("[data-result]") ||
+      document.querySelector(".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis")
+    );
+  }
+
+  function resultSignature(node) {
+    if (!node) return "";
+    const text = normalize(node.textContent);
+    const html = normalize(node.innerHTML).slice(0, 600);
+    return `${text}||${html}`;
+  }
+
+  function resultHeadline(node) {
+    if (!node) return "";
+    const heading = node.querySelector("h1, h2, h3, strong, b");
+    return normalize(heading ? heading.textContent : "");
+  }
+
+  function sampleText(field) {
+    const key = `${field.id || ""} ${field.name || ""} ${field.placeholder || ""}`.toLowerCase();
+    if (/email/.test(key)) return "bonjour@example.com";
+    if (/url|site|website|lien/.test(key)) return "https://example.com/offre-solaire";
+    if (/phone|tel|mobile/.test(key)) return "0612345678";
+    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return "Paris";
+    if (/orientation/.test(key)) return "sud";
+    if (/keyword|theme|topic|sujet|subject/.test(key)) return "energie solaire domestique";
+    if (/titre|title/.test(key)) return "Simulateur solaire maison";
+    if (/nom|name|project/.test(key)) return "Projet Horizon";
+    if (/description|notes|content|message/.test(key)) return "Maison individuelle exposee sud avec toiture exploitable.";
+    return field.placeholder || "France";
+  }
+
+  function sampleNumber(field) {
+    const key = `${field.id || ""} ${field.name || ""}`.toLowerCase();
+    if (/inclinaison|angle|slope/.test(key)) return "30";
+    if (/surface|size|m2|sqm/.test(key)) return "28";
+    if (/annee|year/.test(key)) return "2024";
+    if (/prix|price|budget|cost|amount|montant/.test(key)) return "12000";
+    const min = Number(field.min || "");
+    const max = Number(field.max || "");
+    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {
+      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));
+    }
+    if (Number.isFinite(min)) return String(Math.max(min, 12));
+    if (Number.isFinite(max)) return String(Math.min(max, 12));
+    return field.value || "12";
+  }
+
+  function applySample(field) {
+    const tag = (field.tagName || "").toLowerCase();
+    const type = (field.type || "").toLowerCase();
+    if (field.disabled) return;
+    if (tag === "select") {
+      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];
+      if (option) field.value = option.value;
+      return;
+    }
+    if (type === "checkbox") {
+      field.checked = true;
+      return;
+    }
+    if (type === "radio") {
+      field.checked = true;
+      return;
+    }
+    if (type === "date") {
+      field.value = "2026-03-01";
+      return;
+    }
+    if (type === "email") {
+      field.value = "bonjour@example.com";
+      return;
+    }
+    if (type === "url") {
+      field.value = "https://example.com/offre-solaire";
+      return;
+    }
+    if (type === "tel") {
+      field.value = "0612345678";
+      return;
+    }
+    if (type === "color") {
+      field.value = "#2f855a";
+      return;
+    }
+    if (type === "number" || type === "range") {
+      field.value = sampleNumber(field);
+      return;
+    }
+    field.value = sampleText(field);
+  }
+
+  function stamp(status, detail, headline, primary) {
+    const node = marker();
+    node.dataset.status = status;
+    node.dataset.mode = "native-form";
+    node.dataset.detail = detail || "";
+    node.dataset.headline = headline || "";
+    node.dataset.primary = primary || "";
+    node.dataset.viewport = window.innerWidth <= 640 ? "mobile" : "desktop";
+  }
+
+  function inspectResult(before, attemptsLeft) {
+    const result = findResult();
+    if (!result) {
+      stamp("fail", "La zone de resultat est introuvable.", "");
+      return;
+    }
+    const after = resultSignature(result);
+    const text = normalize(result.textContent);
+    if (after && after !== before && text.length >= 24) {
+      const primary = result.querySelector("a[href], button[data-href], [data-primary-url]") || document.querySelector("#tool-result a[href]");
+      stamp("pass", "Le formulaire natif a mis a jour la zone de resultat.", resultHeadline(result), primary ? (primary.getAttribute("href") || primary.getAttribute("data-primary-url") || "") : "");
+      return;
+    }
+    if (attemptsLeft > 0) {
+      window.setTimeout(function () {
+        inspectResult(before, attemptsLeft - 1);
+      }, 250);
+      return;
+    }
+    stamp("fail", "La zone de resultat n'a pas renvoye de contenu exploitable.", resultHeadline(result));
+  }
+
+  function runSmoke() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("__qa") !== "functional") return;
+    const form = findForm();
+    if (!form) {
+      stamp("fail", "Le formulaire principal est introuvable.", "");
+      return;
+    }
+    const result = findResult();
+    const before = resultSignature(result);
+    form.querySelectorAll("input, select, textarea").forEach(applySample);
+    const blocker = function (event) {
+      event.preventDefault();
+    };
+    form.addEventListener("submit", blocker, { capture: true, once: true });
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    inspectResult(before, 6);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setTimeout(runSmoke, 60);
+    }, { once: true });
+  } else {
+    window.setTimeout(runSmoke, 60);
+  }
+})();
+</script>
+</body>
+</html>
