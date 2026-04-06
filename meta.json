@@ -11,17 +11,17 @@
   "country": "FR",
   "url": null,
   "expected_url": "https://outil-de-detection-de-plagiat-academique-2.up.railway.app",
-  "created": "2026-04-06T13:14:18.314128+00:00",
+  "created": "2026-04-06T14:08:30.019140+00:00",
   "owner_user_id": "user-1774822953462",
   "owner_username": "admin",
   "owner_display_name": "Administrator",
   "status": "generated",
-  "run_id": "run-1775481257347",
+  "run_id": "run-1775484137408",
   "publish_target": "railway",
   "mode": "production",
   "source_type": "imported",
-  "import_source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775481165959/outil-de-detection-de-plagiat-academique-2",
-  "import_root_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775481165959/outil-de-detection-de-plagiat-academique-2",
+  "import_source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775484072827/outil-de-detection-de-plagiat-academique-2",
+  "import_root_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775484072827/outil-de-detection-de-plagiat-academique-2",
   "import_resolution_note": null,
   "analysis": {
     "model": "preserved-analysis",
@@ -52,7 +52,7 @@
   "growth": {
     "affiliate": {
       "status": "ready",
-      "updated_at": "2026-04-06T13:13:54.726861+00:00",
+      "updated_at": "2026-04-06T14:01:55.461838+00:00",
       "modes": [
         "anchor_text"
       ],
@@ -195,38 +195,38 @@
             "detail": "Editorial desktop layout avoids negative overlap offsets on the tool panel"
           }
         ],
-        "checked_at": 1775481235
+        "checked_at": 1775484116
       },
       "functional": {
         "status": "pass",
         "detail": "desktop: Le formulaire natif a mis a jour la zone de resultat. | mobile: Le formulaire natif a mis a jour la zone de resultat.",
-        "target_url": "http://127.0.0.1:40829/index.html?__qa=functional",
+        "target_url": "http://127.0.0.1:45193/index.html?__qa=functional",
         "mode": "native-form",
         "headline": "Résultats de l'Analyse",
         "primary_url": "",
         "desktop": {
           "status": "pass",
           "detail": "Le formulaire natif a mis a jour la zone de resultat.",
-          "target_url": "http://127.0.0.1:40829/index.html?__qa=functional",
+          "target_url": "http://127.0.0.1:45193/index.html?__qa=functional",
           "viewport": "desktop",
           "mode": "native-form",
           "headline": "Résultats de l'Analyse",
           "primary_url": "",
           "reported_viewport": "desktop",
-          "updated_at": 1775481236
+          "updated_at": 1775484116
         },
         "mobile": {
           "status": "pass",
           "detail": "Le formulaire natif a mis a jour la zone de resultat.",
-          "target_url": "http://127.0.0.1:40829/index.html?__qa=functional",
+          "target_url": "http://127.0.0.1:45193/index.html?__qa=functional",
           "viewport": "mobile",
           "mode": "native-form",
           "headline": "Résultats de l'Analyse",
           "primary_url": "",
           "reported_viewport": "mobile",
-          "updated_at": 1775481237
+          "updated_at": 1775484117
         },
-        "updated_at": 1775481237
+        "updated_at": 1775484117
       },
       "remote": {
         "status": "pass",
@@ -247,7 +247,7 @@
             "detail": "Remote HTML contains a body tag"
           }
         ],
-        "checked_at": 1775481238
+        "checked_at": 1775484118
       },
       "visual": {
         "status": "pass",
@@ -263,7 +263,7 @@
           "detail": "430x932 screenshot captured.",
           "relative_url": "/static/generated-qa/outil-de-detection-de-plagiat-academique-2/outil-de-detection-de-plagiat-academique-2-mobile.png"
         },
-        "updated_at": 1775481241
+        "updated_at": 1775484121
       },
       "lighthouse": {
         "status": "pass",
@@ -274,10 +274,10 @@
           "seo": 100
         },
         "report_path": "/var/lib/utility-site-studio/data/qa/lighthouse/outil-de-detection-de-plagiat-academique-2-lighthouse.json",
-        "updated_at": 1775481256
+        "updated_at": 1775484136
       },
       "qa_live_url": "https://outil-de-detection-de-plagiat-academique-2-production.up.railway.app",
-      "updated_at": "2026-04-06T13:14:16.622347+00:00"
+      "updated_at": "2026-04-06T14:02:16.796659+00:00"
     }
   }
 }
