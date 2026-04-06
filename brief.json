@@ -1,5 +1,5 @@
 {
-  "run_id": "run-1775481257347",
+  "run_id": "run-1775484137408",
   "job_index": 1,
   "params": {
     "owner_user_id": "user-1774822953462",
@@ -7,7 +7,7 @@
     "owner_display_name": "Administrator",
     "count": 1,
     "archetype": "tool",
-    "market": "Growth republish",
+    "market": "Vérifiez l",
     "language": "fr",
     "country": "FR",
     "brief": "Vérifiez l",
@@ -32,8 +32,8 @@
     "forced_slug": "outil-de-detection-de-plagiat-academique-2",
     "site_idea_title": "Outil de Détection de Plagiat Académique",
     "site_idea_summary": "Vérifiez l",
-    "import_source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775481165959/outil-de-detection-de-plagiat-academique-2",
-    "import_root_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775481165959/outil-de-detection-de-plagiat-academique-2",
+    "import_source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775484072827/outil-de-detection-de-plagiat-academique-2",
+    "import_root_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775484072827/outil-de-detection-de-plagiat-academique-2",
     "import_analysis_model": "preserved-analysis"
   },
   "import_analysis": {
@@ -44,7 +44,7 @@
     "archetype": "tool",
     "language": "fr",
     "country": "FR",
-    "market": "Growth republish",
+    "market": "Vérifiez l",
     "characteristics": [
       "imported static site",
       "ready file deploy",
@@ -52,6 +52,6 @@
     ],
     "suggested_slug": "outil-de-detection-de-plagiat-academique-2"
   },
-  "source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775481165959/outil-de-detection-de-plagiat-academique-2",
-  "deploy_root": "/var/lib/utility-site-studio/data/growth-republish/growth-1775481165959/outil-de-detection-de-plagiat-academique-2"
+  "source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775484072827/outil-de-detection-de-plagiat-academique-2",
+  "deploy_root": "/var/lib/utility-site-studio/data/growth-republish/growth-1775484072827/outil-de-detection-de-plagiat-academique-2"
 }
