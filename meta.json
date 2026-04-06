@@ -11,12 +11,12 @@
   "country": "FR",
   "url": null,
   "expected_url": "https://outil-de-detection-de-plagiat-academique-2.up.railway.app",
-  "created": "2026-04-06T17:55:37.013293+00:00",
+  "created": "2026-04-06T18:30:53.955257+00:00",
   "owner_user_id": "user-1774822953462",
   "owner_username": "admin",
   "owner_display_name": "Administrator",
   "status": "generated",
-  "run_id": "run-1775497924147",
+  "run_id": "run-1775500252387",
   "publish_target": "railway",
   "mode": "production",
   "source_type": "imported",
@@ -125,159 +125,8 @@
       "requested_public_url": "https://outil-de-detection-de-plagiat-academique-2-production.up.railway.app"
     },
     "qa": {
-      "status": "pass",
-      "local": {
-        "status": "pass",
-        "checks": [
-          {
-            "name": "index_exists",
-            "status": "pass",
-            "detail": "index.html exists"
-          },
-          {
-            "name": "meta_exists",
-            "status": "pass",
-            "detail": "meta.json exists"
-          },
-          {
-            "name": "robots_exists",
-            "status": "pass",
-            "detail": "robots.txt exists"
-          },
-          {
-            "name": "has_title",
-            "status": "pass",
-            "detail": "HTML contains a title tag"
-          },
-          {
-            "name": "has_viewport",
-            "status": "pass",
-            "detail": "HTML contains a mobile viewport meta tag"
-          },
-          {
-            "name": "has_canonical",
-            "status": "pass",
-            "detail": "HTML contains a canonical URL"
-          },
-          {
-            "name": "bundle_size",
-            "status": "pass",
-            "detail": "Generated HTML stays below 250KB"
-          },
-          {
-            "name": "functional_qa_hook",
-            "status": "pass",
-            "detail": "Generated HTML includes the browser QA hook used before deploy."
-          },
-          {
-            "name": "inline_script_syntax",
-            "status": "pass",
-            "detail": "Inline JavaScript syntax check passed."
-          },
-          {
-            "name": "robots_google_only",
-            "status": "pass",
-            "detail": "robots.txt allows only Google crawlers and blocks all other bots."
-          },
-          {
-            "name": "no_meta_noindex",
-            "status": "pass",
-            "detail": "Generated HTML does not inject a noindex robots meta tag."
-          },
-          {
-            "name": "no_internal_branding",
-            "status": "pass",
-            "detail": "Generated site does not leak internal platform branding or internal product naming."
-          },
-          {
-            "name": "desktop_layout_overlap",
-            "status": "pass",
-            "detail": "Editorial desktop layout avoids negative overlap offsets on the tool panel"
-          }
-        ],
-        "checked_at": 1775497902
-      },
-      "functional": {
-        "status": "pass",
-        "detail": "desktop: Le formulaire natif a mis a jour la zone de resultat. | mobile: Le formulaire natif a mis a jour la zone de resultat.",
-        "target_url": "http://127.0.0.1:43653/index.html?__qa=functional",
-        "mode": "native-form",
-        "headline": "Résultats de l'Analyse",
-        "primary_url": "",
-        "desktop": {
-          "status": "pass",
-          "detail": "Le formulaire natif a mis a jour la zone de resultat.",
-          "target_url": "http://127.0.0.1:43653/index.html?__qa=functional",
-          "viewport": "desktop",
-          "mode": "native-form",
-          "headline": "Résultats de l'Analyse",
-          "primary_url": "",
-          "reported_viewport": "desktop",
-          "updated_at": 1775497903
-        },
-        "mobile": {
-          "status": "pass",
-          "detail": "Le formulaire natif a mis a jour la zone de resultat.",
-          "target_url": "http://127.0.0.1:43653/index.html?__qa=functional",
-          "viewport": "mobile",
-          "mode": "native-form",
-          "headline": "Résultats de l'Analyse",
-          "primary_url": "",
-          "reported_viewport": "mobile",
-          "updated_at": 1775497904
-        },
-        "updated_at": 1775497904
-      },
-      "remote": {
-        "status": "pass",
-        "checks": [
-          {
-            "name": "remote_200",
-            "status": "pass",
-            "detail": "Remote deployment returned HTTP 200"
-          },
-          {
-            "name": "remote_title",
-            "status": "pass",
-            "detail": "Remote HTML contains a title tag"
-          },
-          {
-            "name": "remote_body",
-            "status": "pass",
-            "detail": "Remote HTML contains a body tag"
-          }
-        ],
-        "checked_at": 1775497905
-      },
-      "visual": {
-        "status": "pass",
-        "desktop": {
-          "status": "pass",
-          "path": "/var/lib/utility-site-studio/static/generated-qa/outil-de-detection-de-plagiat-academique-2/outil-de-detection-de-plagiat-academique-2-desktop.png",
-          "detail": "1440x960 screenshot captured.",
-          "relative_url": "/static/generated-qa/outil-de-detection-de-plagiat-academique-2/outil-de-detection-de-plagiat-academique-2-desktop.png"
-        },
-        "mobile": {
-          "status": "pass",
-          "path": "/var/lib/utility-site-studio/static/generated-qa/outil-de-detection-de-plagiat-academique-2/outil-de-detection-de-plagiat-academique-2-mobile.png",
-          "detail": "430x932 screenshot captured.",
-          "relative_url": "/static/generated-qa/outil-de-detection-de-plagiat-academique-2/outil-de-detection-de-plagiat-academique-2-mobile.png"
-        },
-        "updated_at": 1775497908
-      },
-      "lighthouse": {
-        "status": "pass",
-        "scores": {
-          "performance": 100,
-          "accessibility": 92,
-          "best-practices": 96,
-          "seo": 100
-        },
-        "report_path": "/var/lib/utility-site-studio/data/qa/lighthouse/outil-de-detection-de-plagiat-academique-2-lighthouse.json",
-        "updated_at": 1775497923
-      },
-      "qa_live_url": "https://outil-de-detection-de-plagiat-academique-2-production.up.railway.app",
-      "updated_at": "2026-04-06T17:52:03.507510+00:00"
+      "status": "failed",
+      "detail": "Railway API error: Not Authorized"
     }
   }
 }
