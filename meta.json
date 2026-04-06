@@ -11,17 +11,17 @@
   "country": "FR",
   "url": null,
   "expected_url": "https://outil-de-detection-de-plagiat-academique-2.up.railway.app",
-  "created": "2026-04-06T16:04:20.487157+00:00",
+  "created": "2026-04-06T16:49:28.513280+00:00",
   "owner_user_id": "user-1774822953462",
   "owner_username": "admin",
   "owner_display_name": "Administrator",
   "status": "generated",
-  "run_id": "run-1775491459498",
+  "run_id": "run-1775494166929",
   "publish_target": "railway",
   "mode": "production",
   "source_type": "imported",
-  "import_source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775491333130/outil-de-detection-de-plagiat-academique-2",
-  "import_root_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775491333130/outil-de-detection-de-plagiat-academique-2",
+  "import_source_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775494011278/outil-de-detection-de-plagiat-academique-2",
+  "import_root_path": "/var/lib/utility-site-studio/data/growth-republish/growth-1775494011278/outil-de-detection-de-plagiat-academique-2",
   "import_resolution_note": null,
   "analysis": {
     "model": "preserved-analysis",
@@ -52,7 +52,7 @@
   "growth": {
     "affiliate": {
       "status": "ready",
-      "updated_at": "2026-04-06T16:03:57.900146+00:00",
+      "updated_at": "2026-04-06T16:49:04.639400+00:00",
       "modes": [
         "anchor_text"
       ],
@@ -70,9 +70,9 @@
     "status": "ready",
     "synced_at": "2026-04-05T22:58:28.078755+00:00",
     "country": "FR",
-    "target_url": "https://outil-de-detection-de-plagiat-academique-2.up.railway.app/",
-    "target_host": "outil-de-detection-de-plagiat-academique-2.up.railway.app",
-    "current_live_url": "https://outil-de-detection-de-plagiat-academique-2.up.railway.app",
+    "target_url": "https://outil-de-detection-de-plagiat-academique-2-production.up.railway.app/",
+    "target_host": "outil-de-detection-de-plagiat-academique-2-production.up.railway.app",
+    "current_live_url": "https://outil-de-detection-de-plagiat-academique-2-production.up.railway.app",
     "domain_rating": 85.0,
     "ahrefs_rank": 4974,
     "backlinks": 0,
@@ -90,7 +90,7 @@
     "shared_host": true,
     "metrics_scope": "shared-host",
     "shared_host_provider": "Railway",
-    "shared_host_note": "Сайт живёт на Railway shared host (outil-de-detection-de-plagiat-academique-2.up.railway.app). DR и Ahrefs Rank в таком режиме частично отражают силу хост-домена, поэтому смотри в первую очередь на keywords, ref domains, traffic и top pages.",
+    "shared_host_note": "Сайт живёт на Railway shared host (outil-de-detection-de-plagiat-academique-2-production.up.railway.app). DR и Ahrefs Rank в таком режиме частично отражают силу хост-домена, поэтому смотри в первую очередь на keywords, ref domains, traffic и top pages.",
     "opportunity_score": 0,
     "opportunity_band": "dormant",
     "opportunity_label": "Dormant",
@@ -195,38 +195,38 @@
             "detail": "Editorial desktop layout avoids negative overlap offsets on the tool panel"
           }
         ],
-        "checked_at": 1775491438
+        "checked_at": 1775494145
       },
       "functional": {
         "status": "pass",
         "detail": "desktop: Le formulaire natif a mis a jour la zone de resultat. | mobile: Le formulaire natif a mis a jour la zone de resultat.",
-        "target_url": "http://127.0.0.1:44751/index.html?__qa=functional",
+        "target_url": "http://127.0.0.1:32825/index.html?__qa=functional",
         "mode": "native-form",
         "headline": "Résultats de l'Analyse",
         "primary_url": "",
         "desktop": {
           "status": "pass",
           "detail": "Le formulaire natif a mis a jour la zone de resultat.",
-          "target_url": "http://127.0.0.1:44751/index.html?__qa=functional",
+          "target_url": "http://127.0.0.1:32825/index.html?__qa=functional",
           "viewport": "desktop",
           "mode": "native-form",
           "headline": "Résultats de l'Analyse",
           "primary_url": "",
           "reported_viewport": "desktop",
-          "updated_at": 1775491439
+          "updated_at": 1775494146
         },
         "mobile": {
           "status": "pass",
           "detail": "Le formulaire natif a mis a jour la zone de resultat.",
-          "target_url": "http://127.0.0.1:44751/index.html?__qa=functional",
+          "target_url": "http://127.0.0.1:32825/index.html?__qa=functional",
           "viewport": "mobile",
           "mode": "native-form",
           "headline": "Résultats de l'Analyse",
           "primary_url": "",
           "reported_viewport": "mobile",
-          "updated_at": 1775491440
+          "updated_at": 1775494147
         },
-        "updated_at": 1775491440
+        "updated_at": 1775494147
       },
       "remote": {
         "status": "pass",
@@ -247,7 +247,7 @@
             "detail": "Remote HTML contains a body tag"
           }
         ],
-        "checked_at": 1775491441
+        "checked_at": 1775494147
       },
       "visual": {
         "status": "pass",
@@ -263,7 +263,7 @@
           "detail": "430x932 screenshot captured.",
           "relative_url": "/static/generated-qa/outil-de-detection-de-plagiat-academique-2/outil-de-detection-de-plagiat-academique-2-mobile.png"
         },
-        "updated_at": 1775491443
+        "updated_at": 1775494151
       },
       "lighthouse": {
         "status": "pass",
@@ -274,10 +274,10 @@
           "seo": 100
         },
         "report_path": "/var/lib/utility-site-studio/data/qa/lighthouse/outil-de-detection-de-plagiat-academique-2-lighthouse.json",
-        "updated_at": 1775491458
+        "updated_at": 1775494166
       },
       "qa_live_url": "https://outil-de-detection-de-plagiat-academique-2-production.up.railway.app",
-      "updated_at": "2026-04-06T16:04:18.857593+00:00"
+      "updated_at": "2026-04-06T16:49:26.272551+00:00"
     }
   }
 }
